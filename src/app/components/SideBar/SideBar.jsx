@@ -7,7 +7,7 @@ import loom from '../../../assets/images/loom.png'
 import Footer from './Footer'
 const SideBar = () => {
   return (
-    <aside className='w-4/5 my-0 mx-auto py-5 box-border h-page-height relative'>
+    <aside className='w-full my-0 mx-auto py-5 box-border h-page-height relative '>
         <section className='mb-12'>
             <Image src={logo} alt="Peerlist" width={150} />
         </section>

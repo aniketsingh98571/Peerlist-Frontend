@@ -7,13 +7,16 @@ module.exports = {
   ],
   theme: {
     colors:{
-      'footer-links':"#444D56"
+      'footer-links':"#444D56",
+      'posting-background':'#FAFBFC',
+      'black-text':'#0D0D0D',
+      'grey-text':'#6A737D'
     },
     extend: {
       width: {
         'side-width': '25%',
         'right-width':"75%",
-        'page-width':'100%'
+        'page-width':'80%'
       },
       height:{
         'side-height':'100%',
