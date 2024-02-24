@@ -4,7 +4,7 @@ import search from '../../../../assets/images/search.png'
 import Image from 'next/image'
 import { mockData,lists } from '@/data/mockCandidateData'
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
+import Card from './Card';
 const DataLayout = () => {
     const [elements, setElements] = useState(mockData);
     const [winReady, setwinReady] = useState(false);
@@ -25,19 +25,22 @@ const onDragEnd = (result) => {
             {
                 winReady?
         <DragDropContext onDragEnd={onDragEnd}>
-      <div className="flex">
+      <div className="flex px-10 box-border justify-between">
         {lists.map(list => (
-          <Droppable droppableId={list}>
+          <Droppable droppableId={list.id} key={list.id}>
             {(provided) => (
               <div 
-                className="bg-gray-100 p-4 mr-4 text-center flex-1"
+                className="w-card-width bg-posting-background"
                 ref={provided.innerRef}
                 { ...provided.dragHandleProps} 
                 {...provided.droppableProps}
+                
               >
-                <h2 className="text-lg font-bold mb-4">{list}</h2>
-                  
-                {elements[list].map((item, index) => (
+                <div className={`${list.name==="APPLIED"?'bg-applied':list.name==='REJECTED'?'bg-rejected':'bg-shortlisted'} flex items-center p-2 rounded-tl-lg rounded-tr-lg gap-2`}>
+                  <Image src={list.image} alt={list.name} width={18}/>
+                  <span className={`text-sm ${list.name==="APPLIED"?'text-black-text':list.name==='REJECTED'?'text-red-text':'text-green-text'} font-bold`}>{list.name} • {elements[list.name].length}</span>
+                </div>
+                {elements[list.name].map((item, index) => (
             
                   <Draggable 
                     key={item.id}
@@ -50,7 +53,7 @@ const onDragEnd = (result) => {
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                       >
-                        {item.name}
+                        <Card item={item}/>
                       </div>
                     )}
                   </Draggable>

@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 body{
-    height: 100vh;
+    /* height: 100vh; */
     width: 100vw;
+    overflow-x: hidden
 }
 
 /*grouping common utlity classes into a custom utility class so that we dont have to write these much again and again*/
@@ -13,4 +14,10 @@ body{
 }
 .side-child-hover{
     @apply duration-300 group-hover:mx-2;
+}
+.small-text{
+    @apply text-xs text-grey-text
+}
+.main-title{
+    @apply text-sm font-bold text-black-text
 }

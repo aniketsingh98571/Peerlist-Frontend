@@ -1,4 +1,7 @@
 import mock from '../assets/images/mock.png'
+import reject from  '../assets/images/reject.png'
+import applied from  '../assets/images/applied.png'
+import shortlisted from  '../assets/images/shortlisted.png'
 export const mockData={
     'APPLIED':[
         {
@@ -11,7 +14,7 @@ export const mockData={
             experience:'11y 6m',
             offer:'Yes',
             notice:'30 days',
-            applied:'',
+            applied:'1d',
             reference:"maddie",
             status:'applied'
         },
@@ -77,4 +80,23 @@ export const mockData={
         }
     ]
 }
-export const lists = ["APPLIED","REJECTED", "SHORTLISTED"];
+export const lists = [
+    {
+        name:"APPLIED",
+        image:applied,
+        background:'applied',
+        id:"1"
+    },
+    {
+        name:"REJECTED",
+        image:reject,
+        background:'rejected',
+        id:"2"
+    },
+    {
+        name:"SHORTLISTED",
+        image:shortlisted,
+        background:'shortlisted',
+        id:"3"
+    }
+];
