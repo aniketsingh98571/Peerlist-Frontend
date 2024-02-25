@@ -42,7 +42,7 @@ const onDragEnd = (result) => {
                 </div>
                 <div className='max-h-full overflow-auto'>
                   {elements[list.name].map((item, index) => (
-                    <div>
+                    <div key={item.id}>
                     <Draggable 
                       key={item.id}
                       draggableId={item.id}
@@ -54,7 +54,7 @@ const onDragEnd = (result) => {
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                         >
-                          <Card item={item}/>
+                          <Card key={item.id} item={item}/>
                         </div>
                       )}
                     </Draggable>
