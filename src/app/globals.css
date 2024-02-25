@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-    /* height: 100vh; */
+    height: 100vh;
     width: 100vw;
     overflow-x: hidden
 }
@@ -20,4 +20,40 @@ body{
 }
 .main-title{
     @apply text-sm font-bold text-black-text
+}
+.flex-direction-change{
+    @apply flex-row
+}
+.margin-left{
+    @apply ml-0
+}
+@media(max-width:1024px){
+    .w-page-width{
+        width: 100%;
+    }
+    .w-side-width{
+        width: 0%;
+        overflow: hidden;
+    }
+    .w-right-width{
+        width: 100%;
+    }
+    .h-posting-height {
+        height:auto;
+    }
+    .h-drag-height{
+        height: auto;
+    }
+    .flex-direction-change{
+        @apply flex-col
+    }
+    .w-card-width{
+        width: 100%;
+    }
+    .px-10{
+        padding: 0;
+    }
+    .margin-left{
+        @apply ml-auto
+    }
 }

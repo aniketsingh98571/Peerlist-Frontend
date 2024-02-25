@@ -3,7 +3,7 @@ import { footerList } from '@/data/sideBarList'
 //Making a separate component for footer so that it can be reused
 const Footer = () => {
   return (
-    <footer className='mt-16 w-page-width'>
+    <footer className='absolute bottom-3 w-page-width '>
         <div>
             {
                 footerList.map((item,index)=>{

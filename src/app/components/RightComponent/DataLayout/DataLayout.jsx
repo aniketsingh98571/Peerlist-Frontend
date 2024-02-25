@@ -16,21 +16,21 @@ const onDragEnd = (result) => {
     // Implement drag & drop logic
   }
   return (
-    <section className='w-full'>
-        <div className='flex items-center gap-2 my-4'>
+    <section className='w-full h-full'>
+        <div className='flex items-center gap-2 py-4 box-border'>
             <Image src={search} alt="search" width={15} className='ml-11'/>
             <input type='input' placeholder='Search Candidates' className='w-4/5 py-2 box-border px-3 '/>
         </div>
-        <div>
+        <div className='h-drag-height'>
             {
                 winReady?
         <DragDropContext onDragEnd={onDragEnd}>
-      <div className="flex px-10 box-border justify-between">
+      <div className="flex px-10 box-border justify-between h-full  flex-direction-change">
         {lists.map(list => (
           <Droppable droppableId={list.id} key={list.id}>
             {(provided) => (
               <div 
-                className="w-card-width bg-posting-background"
+                className="w-card-width bg-posting-background h-full"
                 ref={provided.innerRef}
                 { ...provided.dragHandleProps} 
                 {...provided.droppableProps}
@@ -40,34 +40,36 @@ const onDragEnd = (result) => {
                   <Image src={list.image} alt={list.name} width={18}/>
                   <span className={`text-sm ${list.name==="APPLIED"?'text-black-text':list.name==='REJECTED'?'text-red-text':'text-green-text'} font-bold`}>{list.name} • {elements[list.name].length}</span>
                 </div>
-                {elements[list.name].map((item, index) => (
-            
-                  <Draggable 
-                    key={item.id}
-                    draggableId={item.id}
-                    index={index}
-                  >
-                    {(provided) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                      >
-                        <Card item={item}/>
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-
-                {provided.placeholder}
+                <div className='max-h-full overflow-auto'>
+                  {elements[list.name].map((item, index) => (
+                    <div>
+                    <Draggable 
+                      key={item.id}
+                      draggableId={item.id}
+                      index={index}
+                    >
+                      {(provided) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                        >
+                          <Card item={item}/>
+                        </div>
+                      )}
+                    </Draggable>
+                    </div>
+                  ))}
               </div>
+                {provided.placeholder}
+            </div>
             )}
           </Droppable>
         ))}
       </div>
     </DragDropContext>:null
 }
-        </div>
+    </div>
     </section>
   )
 }

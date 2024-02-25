@@ -4,10 +4,10 @@ import DataLayout from './DataLayout/DataLayout'
 const RightComponent = () => {
   return (
     <>
-        <main className='w-full'>
+        <main className='w-full h-posting-height'>
             <PostingTitle/>
         </main>
-        <main className='w-full'>
+        <main className='w-full h-drag-height'>
             <DataLayout/>
         </main>
     </>

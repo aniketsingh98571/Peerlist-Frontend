@@ -6,7 +6,7 @@ import arrow from '../../../assets/images/arrow.png'
 import Image from 'next/image'
 const PostingTitle = () => {
   return (
-    <main className='bg-posting-background w-full p-8 box-border flex justify-between'>
+    <main className='bg-posting-background w-full h-full p-5 box-border flex justify-between  flex-direction-change'>
         <section className='flex'>
             <div>
                 <Image src={peerlist} alt="peerliset"/>
@@ -35,7 +35,7 @@ const PostingTitle = () => {
                 </div>
             </div>
         </section>
-        <section className='mt-2'>
+        <section className='mt-2  margin-left'>
             <div>
                 <Image src={tools} alt="tools"/>
             </div>
